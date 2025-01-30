@@ -3,7 +3,7 @@
 $peso = 60;
 $altura = 1.70;
 
-echo $imc = $peso / ($altura * $altura);
+echo $imc = $peso / ($altura * $altura) . PHP_EOL;
     if ($imc < 18 ) {
         echo 'Você está abaixo do peso';
     }else {
@@ -14,8 +14,3 @@ echo $imc = $peso / ($altura * $altura);
             echo 'Você está acima do peso';
         }
     
-  
-            
-      
-
-
