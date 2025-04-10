@@ -1,69 +1,18 @@
 <?php
 
-class Conta 
-{
-    //definir dados da conta
-   public string $cpfTitular;
-   public string $nomeTitular;
-   public float $saldo = 0;
+require_once 'function.php';
 
-   public function sacar(float $valorASacar)
-   {
-       if ($valorASacar > $this->saldo) {
-        echo 'Saldo Indisponivel';
-        return;
-      } 
-
-        $this->saldo -= $valorASacar;
-   }
-
-public function depositar(float $valorADepositar):void
-{ 
-     if ($valorADepositar <= 0) {
-     echo 'O valor do depósito precisa ser positivo.';
-     return;
-     } 
-
-     $this->saldo += $valorADepositar;
-}
-
- public function transferir( float $valorATransferir, Conta $contaDestino):void
-{
-      if($valorATransferir > $this->saldo) {
-      echo 'Saldo Indisponivel' . PHP_EOL; 
-      return;
-    }
-  
-    $this->sacar($valorATransferir);
-    $contaDestino->depositar($valorATransferir);
-  }
-}
-
-$primeiraConta = new Conta();
-$primeiraConta->cpfTitular = '630.888.888-00';
-$primeiraConta->nomeTitular = 'Felipe Oliveira';
-$primeiraConta->saldo = 650;
+$primeiraConta = new Conta('630.888.888-00','Felipe Oliveira', 650);
+$segundaConta = new Conta('987.654.321-00','Silvana',1200);
+$terceiraConta = new Conta('000.000.000-00','Ibson',10);
 
 
-$segundaConta = new Conta();
-$segundaConta->cpfTitular = '987.654.321-00';
-$segundaConta->nomeTitular = 'Silvana';
-$segundaConta->saldo = 1200;
-
-$terceiraConta = new conta();
-$terceiraConta->nomeTitular = 'Ibson';
+$primeiraConta->sacar(50);
+$segundaConta->depositar(100);
+$primeiraConta->transferir(200, $terceiraConta);
 
 
-$primeiraConta->sacar(2);
-var_dump($primeiraConta);
-
-$segundaConta->depositar(50);
-var_dump($segundaConta);
-
-$segundaConta->transferir(10, $terceiraConta);
-var_dump($segundaConta);
-var_dump($primeiraConta);
-var_dump($terceiraConta);
-
-
+echo $primeiraConta->recuperaCpf() . ' Nome :' . $primeiraConta->recuperaNome() . ' Saldo de :' .  $primeiraConta->recuperaSaldo() . PHP_EOL;
+echo $segundaConta->recuperaCpf() . ' Nome :' . $segundaConta->recuperaNome() . ' Saldo de :' .  $segundaConta->recuperaSaldo(). PHP_EOL;
+echo $terceiraConta->recuperaCpf() . ' Nome :' . $terceiraConta->recuperaNome() . ' Saldo de :' . $terceiraConta->recuperaSaldo(). PHP_EOL;
 ?>
