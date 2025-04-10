@@ -5,9 +5,9 @@ class Conta
     //definir dados da conta
    private string $cpfTitular;
    private string $nomeTitular;
-   private float $saldo = 0;
+   private float $saldo;
 
-   public function __construct($cpftitular, $nomeTitular, $saldo)
+   public function __construct(string $cpftitular, string $nomeTitular, $saldo = 0)
    {
     $this->cpfTitular = $cpftitular;
     $this->nomeTitular = $nomeTitular;
