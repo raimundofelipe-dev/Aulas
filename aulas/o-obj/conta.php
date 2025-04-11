@@ -17,5 +17,5 @@ $primeiraConta->transferir(200, $terceiraConta);
  $segundaConta->recuperaCpf() . ' Nome :' . $segundaConta->recuperaNome() . ' Saldo de :' .  $segundaConta->recuperaSaldo(). PHP_EOL;
  $terceiraConta->recuperaCpf() . ' Nome :' . $terceiraConta->recuperaNome() . ' Saldo de :' . $terceiraConta->recuperaSaldo(). PHP_EOL;
 
- var_dump($quartaConta);
+
 ?>
