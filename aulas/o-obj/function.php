@@ -10,10 +10,7 @@ class Conta
    public function __construct(string $cpfTitular, string $nomeTitular, $saldo = 0)
    {
     $this->cpfTitular = $cpfTitular;
-    if (strlen($nomeTitular) < 5){
-       echo 'Nome precisa ter pelo o menos 5 cacacters'; 
-       exit();
-    }
+    $this->validaNomeTitular($nomeTitular);
     $this->nomeTitular = $nomeTitular;
     $this->saldo = $saldo;
    }
@@ -62,4 +59,12 @@ public function recuperaSaldo():float
  {
     return $this->cpfTitular;
  }
+ public function validaNomeTitular(string $nomeTitular)
+ {
+  if (strlen($nomeTitular) < 5){
+    echo 'Nome precisa ter pelo o menos 5 cacacters'; 
+    exit();
+  }
 }
+}
+
