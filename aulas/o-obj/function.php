@@ -7,9 +7,13 @@ class Conta
    private string $nomeTitular;
    private float $saldo;
 
-   public function __construct(string $cpftitular, string $nomeTitular, $saldo = 0)
+   public function __construct(string $cpfTitular, string $nomeTitular, $saldo = 0)
    {
-    $this->cpfTitular = $cpftitular;
+    $this->cpfTitular = $cpfTitular;
+    if (strlen($nomeTitular) < 5){
+       echo 'Nome precisa ter pelo o menos 5 cacacters'; 
+       exit();
+    }
     $this->nomeTitular = $nomeTitular;
     $this->saldo = $saldo;
    }
